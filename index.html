@@ -12,15 +12,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0d0d0d;
-      --surface: #161616;
-      --border: rgba(255,255,255,0.08);
-      --border-hover: rgba(255,255,255,0.2);
-      --text: #f0ede8;
-      --muted: #666666;
-      --faint: rgba(102,102,102,0.6);
-      --accent: #9FBF9A;
-      --accent-bg: rgba(159,191,154,0.1);
+      --bg: #ffffff;
+      --surface: #f7f7f7;
+      --border: rgba(0,0,0,0.1);
+      --border-hover: rgba(0,0,0,0.25);
+      --text: #1a1a1a;
+      --muted: #555555;
+      --faint: rgba(80,80,80,0.6);
+      --accent: #5a9e52;
+      --accent-bg: rgba(159,191,154,0.15);
       --orange: #F1904B;
     }
 
@@ -44,19 +44,21 @@
     }
 
     .nav-logo {
-      font-family: 'Poppins', sans-serif; font-weight: 600;
-      font-size: 17px;
-      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 22px;
+      color: #F1904B;
       text-decoration: none;
     }
+    .nav-logo:hover { opacity: 0.75; }
 
-    .nav-link {
+    .nav-site {
       font-size: 13px;
       color: var(--muted);
       text-decoration: none;
       transition: color 0.15s;
     }
-    .nav-link:hover { color: var(--text); }
+    .nav-site:hover { color: var(--text); }
 
     .hero {
       max-width: 820px;
@@ -78,11 +80,12 @@
       font-weight: 400;
       line-height: 1.15;
       margin-bottom: 1.25rem;
+      color: #9FBF9A;
     }
 
     .hero p {
       font-size: 16px;
-      color: var(--muted);
+      color: #666666;
       max-width: 560px;
       line-height: 1.75;
     }
@@ -134,6 +137,7 @@
       font-weight: 500;
       margin-bottom: 0.6rem;
       line-height: 1.3;
+      color: #F1904B;
     }
 
     .job-tags {
@@ -200,7 +204,7 @@
 
     .job-section p {
       font-size: 15px;
-      color: rgba(240,237,232,0.72);
+      color: #666666;
       line-height: 1.75;
     }
 
@@ -210,7 +214,7 @@
 
     .job-section ul li {
       font-size: 15px;
-      color: rgba(240,237,232,0.72);
+      color: #666666;
       line-height: 1.65;
       padding: 0.3rem 0 0.3rem 1.1rem;
       position: relative;
@@ -279,14 +283,15 @@
 <body>
 
   <nav>
-    <a class="nav-logo" href="https://www.abakino.com/">Abakino</a>
-    <a class="nav-link" href="https://www.abakino.com/">← Back to site</a>
+    <a class="nav-logo" href="https://www.abakino.com/" target="_blank" rel="noopener">Abakino</a>
+    <a class="nav-site" href="https://www.abakino.com/" target="_blank" rel="noopener">abakino.com</a>
+
   </nav>
 
   <section class="hero">
     <p class="eyebrow">We're hiring</p>
     <h1>Help us reshape STEM teaching</h1>
-    <p>Abakino Whiteboard is an AI-powered tool that lets teachers graph, solve, and animate math as naturally as writing on paper. We're a small, mission-driven team in the early stages — the people joining now will shape what we become.</p>
+    <p>Abakino Whiteboard makes using a graphing calculator as easy as writing on paper. STEM teachers graph functions, solve equations, perform calculations, and create animations using nothing more than handwriting and natural gestures on a whiteboard. We have a working prototype, a clear market, decades of experience in math education, advisory ties to UCL's education and EdTech entrepreneurship ecosystem, and have recently joined the UtrechtInc Tech Validation program as we head into pilot.</p>
   </section>
 
   <hr />
@@ -300,7 +305,7 @@
         <div class="job-header-left">
           <p class="job-title">Backend Developer – Math Expertise</p>
           <div class="job-tags">
-            <span class="tag green">Remote</span>
+            <span class="tag green">Remote / Hybrid</span>
             <span class="tag">Utrecht / NL preferred</span>
             <span class="tag">Internship · Thesis · Contractor</span>
           </div>
@@ -314,15 +319,15 @@
       </div>
       <div class="job-body">
         <div class="job-section">
-          <h3>The role</h3>
-          <p>You will work directly alongside the founder — a 26-year math teaching expert — to develop and stabilise the core math logic of our backend, used for plotting functions, solving equations, and evaluating functions, derivatives, and definite integrals. You will help debug, harden the parsing pipeline, handle edge cases, and contribute to the mathematical logic that makes the product work. This is not a support role — you will be close to the technical heart of the product.</p>
+          <h3>What will you do</h3>
+          <p>You will work directly alongside the founder - a 26-year math teaching expert - to develop and stabilize the core math logic of our backend, used for plotting functions, solving equations, and evaluating functions, derivatives, and definite integrals. You will help debug, harden the parsing pipeline, handle edge cases, and contribute to the mathematical logic that makes the product work. This is not a support role - you will be close to the technical heart of the product.</p>
         </div>
         <div class="job-section">
           <h3>You're a great fit if you</h3>
           <ul>
-            <li>Have degree-level mathematics — calculus is essential</li>
+            <li>Have degree-level mathematics - calculus is essential</li>
             <li>Are proficient in JavaScript / Node.js and comfortable with backend logic</li>
-            <li>Have hands-on experience with computational math — parsing, evaluating, or manipulating math expressions programmatically</li>
+            <li>Have hands-on experience with computational math - parsing, evaluating, or manipulating math expressions programmatically</li>
             <li>Can work independently from partial documentation in an early-stage codebase</li>
             <li>Are a student or recent graduate open to an internship or external thesis placement (internship allowance provided); or a contractor open to a mix of small cash and deferred pay</li>
           </ul>
@@ -338,7 +343,7 @@
         <div class="job-header-left">
           <p class="job-title">Business Co-Founder</p>
           <div class="job-tags">
-            <span class="tag green">Remote</span>
+            <span class="tag green">Remote / Hybrid</span>
             <span class="tag">Netherlands / EU preferred</span>
             <span class="tag">Equity-based</span>
           </div>
@@ -352,17 +357,17 @@
       </div>
       <div class="job-body">
         <div class="job-section">
-          <h3>The role</h3>
-          <p>In the near term, you will work closely with the founder to move the product through pilot to launch — getting it in front of the right teachers, capturing their feedback, and ensuring what we learn shapes both the product and our go-to-market approach. You will help convert an existing network built over 26 years in international math education into paying customers, lead conversations with schools, universities, and tutoring organisations, and support our model of individual teacher advocates driving institutional procurement.</p>
-          <p>We already have a partnership with a prominent math education content creator, ties to UCL's education and EdTech ecosystem, a French school network, and a clear market sequence — starting in the UK and Netherlands, expanding to the EU and US. On the funding side, you will identify and pursue national innovation grants, R&amp;D tax credits, and education-focused angels.</p>
+          <h3>What will you do</h3>
+          <p>In the near term, you will work closely with the founder to move the product through pilot to launch - getting it in front of the right teachers, capturing their feedback, and ensuring what we learn shapes both the product and our go-to-market approach. Alongside that, you will help convert an existing network built over 26 years in international math education into paying customers, lead conversations with schools, universities, and tutoring organizations, and support our model of individual teacher advocates driving institutional procurement.</p>
+          <p>We already have a partnership with a prominent math education content creator, ties to UCL's education and EdTech entrepreneurship ecosystem, a French school network, and a clear market sequence - starting in the UK and Netherlands, expanding to the EU and US. On the funding side, and with the support of UtrechtInc, you will identify and pursue national innovation grants, R&amp;D tax credits, and education-focused angels. Looking further ahead, you will lay the groundwork for EU-level grant applications as our academic research collaborations mature, and potentially support a crowdfunding campaign in partnership with our content creator network.</p>
         </div>
         <div class="job-section">
           <h3>You're a great fit if you</h3>
           <ul>
             <li>Have proven commercial experience in EdTech, B2B SaaS, or institutional sales</li>
-            <li>Have closed deals with schools, universities, or teacher-facing organisations before</li>
+            <li>Have closed deals with schools, universities, or teacher-facing organizations before</li>
             <li>Know how to turn warm networks and institutional relationships into closed deals</li>
-            <li>Have experience with non-dilutive fundraising — innovation grants, R&amp;D tax credits, or angel investment in education</li>
+            <li>Have experience with non-dilutive fundraising - innovation grants, R&amp;D tax credits, or angel investment in education</li>
             <li>Are financially able to accept low or no initial cash in exchange for meaningful equity upside</li>
             <li>Are entrepreneurial, self-directed, and motivated by mission over salary</li>
             <li>Are open to a co-founder equity arrangement, 4-year vest with a 1-year cliff, plus revenue share on closed deals</li>
@@ -378,7 +383,7 @@
         <div class="job-header-left">
           <p class="job-title">Technical Product Manager</p>
           <div class="job-tags">
-            <span class="tag green">Remote</span>
+            <span class="tag green">Remote / Hybrid</span>
             <span class="tag">Utrecht / NL preferred</span>
             <span class="tag">Equity + Cash mix</span>
           </div>
@@ -392,19 +397,18 @@
       </div>
       <div class="job-body">
         <div class="job-section">
-          <h3>The role</h3>
-          <p>You will take ownership of moving Abakino from its current working state through pilot to launch. Working closely alongside the founder, you will put systems in place to keep the development team — iOS, backend, and founder — on track and accountable across a structured delivery plan spanning infrastructure setup, app stabilisation, pilot onboarding, and App Store launch.</p>
-          <p>You will also help design the pilot process itself — how we onboard our first users, how we collect and triage their feedback, and how what we learn feeds back into the product before launch.</p>
+          <h3>What will you do</h3>
+          <p>You will take ownership of moving Abakino from its current working prototype through pilot to launch. Working closely alongside the founder, you will put systems in place to keep the development team - iOS, backend, and founder - on track and accountable across a structured delivery plan that spans infrastructure setup, app stabilization, pilot onboarding, and App Store launch. That means maintaining a clear view of what needs to happen and in what order, flagging blockers early, coordinating handoffs between developers, and ensuring nothing falls through the cracks. You will also help design the pilot process itself - how we onboard our first users, how we collect and triage their feedback, and how what we learn feeds back into the product before launch.</p>
         </div>
         <div class="job-section">
           <h3>You're a great fit if you</h3>
           <ul>
             <li>Have hands-on experience delivering an early-stage tech product to pilot or launch</li>
-            <li>Can own a delivery process independently — setting up tracking systems, coordinating developers, and enforcing accountability without constant direction</li>
-            <li>Have enough technical affinity to engage meaningfully with iOS and backend developers</li>
+            <li>Can own a delivery process independently - setting up tracking systems, coordinating developers, and enforcing accountability without constant direction</li>
+            <li>Have enough technical affinity to engage meaningfully with iOS and backend developers and understand what they're working on</li>
             <li>Have an EdTech background or strong understanding of how teachers and schools work</li>
             <li>Are motivated by mission and early-stage building, and open to a role where equity is a meaningful part of the compensation</li>
-            <li>Are open to a mix of small cash, deferred pay, and milestone-vested equity, with the potential for a significantly larger stake if the role expands to include business development</li>
+            <li>Are open to a mix of small cash, deferred pay, and milestone-vested equity, with the potential for a significantly larger stake if the role expands to include business development responsibilities</li>
           </ul>
           <p class="job-note">An exceptional student or recent graduate with relevant hands-on experience will also be considered.</p>
         </div>
@@ -417,7 +421,7 @@
   <hr />
   <footer>
     <p>© 2025 Abakino. All rights reserved.</p>
-    <a href="https://sohailafiat.github.io/abakino-privacy-policy/">Privacy Policy</a>
+    <a href="https://www.abakino.com/" target="_blank" rel="noopener">abakino.com</a>
   </footer>
 
   <script>
