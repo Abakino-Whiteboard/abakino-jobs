@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jobs – Abakino</title>
+  <meta name="description" content="Join the team at Abakino and help shape the future of STEM education." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --surface: #161616;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(255,255,255,0.2);
+      --text: #f0ede8;
+      --muted: #666666;
+      --faint: rgba(102,102,102,0.6);
+      --accent: #9FBF9A;
+      --accent-bg: rgba(159,191,154,0.1);
+      --orange: #F1904B;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2.5rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: 17px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-link {
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .nav-link:hover { color: var(--text); }
+
+    .hero {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem 3rem;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif; font-weight: 600;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.75;
+    }
+
+    hr {
+      border: none;
+      border-top: 0.5px solid var(--border);
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .jobs {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3rem 2.5rem 6rem;
+    }
+
+    .jobs-count {
+      font-size: 12px;
+      color: var(--faint);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .job {
+      border: 0.5px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .job:hover { border-color: var(--border-hover); }
+
+    .job-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.5rem 1.75rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .job-header-left { flex: 1; min-width: 0; }
+
+    .job-title {
+      font-size: 17px;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .job-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 0.5px solid var(--border);
+      color: var(--muted);
+      background: transparent;
+    }
+
+    .tag.green {
+      border-color: rgba(168,230,192,0.25);
+      color: var(--accent);
+      background: var(--accent-bg);
+    }
+
+    .job-toggle {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 0.5px solid var(--border);
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .job:hover .job-toggle { border-color: var(--border-hover); }
+
+    .job-toggle svg {
+      width: 12px;
+      height: 12px;
+      stroke: var(--muted);
+      transition: transform 0.25s ease;
+    }
+    .job.open .job-toggle svg { transform: rotate(45deg); }
+
+    .job-body {
+      display: none;
+      padding: 0 1.75rem 1.75rem;
+      border-top: 0.5px solid var(--border);
+    }
+    .job.open .job-body { display: block; }
+
+    .job-section { margin-top: 1.5rem; }
+
+    .job-section h3 {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 0.75rem;
+    }
+
+    .job-section p {
+      font-size: 15px;
+      color: rgba(240,237,232,0.72);
+      line-height: 1.75;
+    }
+
+    .job-section p + p { margin-top: 0.75rem; }
+
+    .job-section ul { list-style: none; padding: 0; }
+
+    .job-section ul li {
+      font-size: 15px;
+      color: rgba(240,237,232,0.72);
+      line-height: 1.65;
+      padding: 0.3rem 0 0.3rem 1.1rem;
+      position: relative;
+    }
+
+    .job-section ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--faint);
+    }
+
+    .job-note {
+      margin-top: 1rem;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--faint);
+    }
+
+    .apply-btn {
+      display: inline-block;
+      margin-top: 1.75rem;
+      padding: 0.6rem 1.4rem;
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
+      color: #0d0d0d;
+      border: none;
+      border-radius: 6px;
+      background: #F1904B;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.15s;
+    }
+    .apply-btn:hover { opacity: 0.85; }
+
+    footer {
+      border-top: 0.5px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    footer p { font-size: 13px; color: var(--faint); }
+
+    footer a {
+      font-size: 13px;
+      color: var(--faint);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    footer a:hover { color: var(--muted); }
+
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.25rem; }
+      .hero { padding: 3.5rem 1.25rem 2rem; }
+      .jobs { padding: 2rem 1.25rem 4rem; }
+      .job-header { padding: 1.25rem; }
+      .job-body { padding: 0 1.25rem 1.25rem; }
+      footer { padding: 1.5rem 1.25rem; flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="https://www.abakino.com/">Abakino</a>
+    <a class="nav-link" href="https://www.abakino.com/">← Back to site</a>
+  </nav>
+
+  <section class="hero">
+    <p class="eyebrow">We're hiring</p>
+    <h1>Help us reshape STEM teaching</h1>
+    <p>Abakino Whiteboard is an AI-powered tool that lets teachers graph, solve, and animate math as naturally as writing on paper. We're a small, mission-driven team in the early stages — the people joining now will shape what we become.</p>
+  </section>
+
+  <hr />
+
+  <section class="jobs">
+    <p class="jobs-count">3 open roles</p>
+
+    <!-- ROLE 1 -->
+    <div class="job" id="job-backend">
+      <div class="job-header" onclick="toggleJob('job-backend')">
+        <div class="job-header-left">
+          <p class="job-title">Backend Developer – Math Expertise</p>
+          <div class="job-tags">
+            <span class="tag green">Remote</span>
+            <span class="tag">Utrecht / NL preferred</span>
+            <span class="tag">Internship · Thesis · Contractor</span>
+          </div>
+        </div>
+        <button class="job-toggle" aria-label="Expand">
+          <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round">
+            <line x1="6" y1="1" x2="6" y2="11"/>
+            <line x1="1" y1="6" x2="11" y2="6"/>
+          </svg>
+        </button>
+      </div>
+      <div class="job-body">
+        <div class="job-section">
+          <h3>The role</h3>
+          <p>You will work directly alongside the founder — a 26-year math teaching expert — to develop and stabilise the core math logic of our backend, used for plotting functions, solving equations, and evaluating functions, derivatives, and definite integrals. You will help debug, harden the parsing pipeline, handle edge cases, and contribute to the mathematical logic that makes the product work. This is not a support role — you will be close to the technical heart of the product.</p>
+        </div>
+        <div class="job-section">
+          <h3>You're a great fit if you</h3>
+          <ul>
+            <li>Have degree-level mathematics — calculus is essential</li>
+            <li>Are proficient in JavaScript / Node.js and comfortable with backend logic</li>
+            <li>Have hands-on experience with computational math — parsing, evaluating, or manipulating math expressions programmatically</li>
+            <li>Can work independently from partial documentation in an early-stage codebase</li>
+            <li>Are a student or recent graduate open to an internship or external thesis placement (internship allowance provided); or a contractor open to a mix of small cash and deferred pay</li>
+          </ul>
+          <p class="job-note">An exceptional candidate with relevant hands-on experience may also receive a small, milestone-vested equity stake.</p>
+        </div>
+        <a class="apply-btn" href="https://qrkit.co/XpyptC" target="_blank" rel="noopener">Apply for this role →</a>
+      </div>
+    </div>
+
+    <!-- ROLE 2 -->
+    <div class="job" id="job-cofounder">
+      <div class="job-header" onclick="toggleJob('job-cofounder')">
+        <div class="job-header-left">
+          <p class="job-title">Business Co-Founder</p>
+          <div class="job-tags">
+            <span class="tag green">Remote</span>
+            <span class="tag">Netherlands / EU preferred</span>
+            <span class="tag">Equity-based</span>
+          </div>
+        </div>
+        <button class="job-toggle" aria-label="Expand">
+          <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round">
+            <line x1="6" y1="1" x2="6" y2="11"/>
+            <line x1="1" y1="6" x2="11" y2="6"/>
+          </svg>
+        </button>
+      </div>
+      <div class="job-body">
+        <div class="job-section">
+          <h3>The role</h3>
+          <p>In the near term, you will work closely with the founder to move the product through pilot to launch — getting it in front of the right teachers, capturing their feedback, and ensuring what we learn shapes both the product and our go-to-market approach. You will help convert an existing network built over 26 years in international math education into paying customers, lead conversations with schools, universities, and tutoring organisations, and support our model of individual teacher advocates driving institutional procurement.</p>
+          <p>We already have a partnership with a prominent math education content creator, ties to UCL's education and EdTech ecosystem, a French school network, and a clear market sequence — starting in the UK and Netherlands, expanding to the EU and US. On the funding side, you will identify and pursue national innovation grants, R&amp;D tax credits, and education-focused angels.</p>
+        </div>
+        <div class="job-section">
+          <h3>You're a great fit if you</h3>
+          <ul>
+            <li>Have proven commercial experience in EdTech, B2B SaaS, or institutional sales</li>
+            <li>Have closed deals with schools, universities, or teacher-facing organisations before</li>
+            <li>Know how to turn warm networks and institutional relationships into closed deals</li>
+            <li>Have experience with non-dilutive fundraising — innovation grants, R&amp;D tax credits, or angel investment in education</li>
+            <li>Are financially able to accept low or no initial cash in exchange for meaningful equity upside</li>
+            <li>Are entrepreneurial, self-directed, and motivated by mission over salary</li>
+            <li>Are open to a co-founder equity arrangement, 4-year vest with a 1-year cliff, plus revenue share on closed deals</li>
+          </ul>
+        </div>
+        <a class="apply-btn" href="https://qrkit.co/XpyptC" target="_blank" rel="noopener">Apply for this role →</a>
+      </div>
+    </div>
+
+    <!-- ROLE 3 -->
+    <div class="job" id="job-tpm">
+      <div class="job-header" onclick="toggleJob('job-tpm')">
+        <div class="job-header-left">
+          <p class="job-title">Technical Product Manager</p>
+          <div class="job-tags">
+            <span class="tag green">Remote</span>
+            <span class="tag">Utrecht / NL preferred</span>
+            <span class="tag">Equity + Cash mix</span>
+          </div>
+        </div>
+        <button class="job-toggle" aria-label="Expand">
+          <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="1.5" stroke-linecap="round">
+            <line x1="6" y1="1" x2="6" y2="11"/>
+            <line x1="1" y1="6" x2="11" y2="6"/>
+          </svg>
+        </button>
+      </div>
+      <div class="job-body">
+        <div class="job-section">
+          <h3>The role</h3>
+          <p>You will take ownership of moving Abakino from its current working state through pilot to launch. Working closely alongside the founder, you will put systems in place to keep the development team — iOS, backend, and founder — on track and accountable across a structured delivery plan spanning infrastructure setup, app stabilisation, pilot onboarding, and App Store launch.</p>
+          <p>You will also help design the pilot process itself — how we onboard our first users, how we collect and triage their feedback, and how what we learn feeds back into the product before launch.</p>
+        </div>
+        <div class="job-section">
+          <h3>You're a great fit if you</h3>
+          <ul>
+            <li>Have hands-on experience delivering an early-stage tech product to pilot or launch</li>
+            <li>Can own a delivery process independently — setting up tracking systems, coordinating developers, and enforcing accountability without constant direction</li>
+            <li>Have enough technical affinity to engage meaningfully with iOS and backend developers</li>
+            <li>Have an EdTech background or strong understanding of how teachers and schools work</li>
+            <li>Are motivated by mission and early-stage building, and open to a role where equity is a meaningful part of the compensation</li>
+            <li>Are open to a mix of small cash, deferred pay, and milestone-vested equity, with the potential for a significantly larger stake if the role expands to include business development</li>
+          </ul>
+          <p class="job-note">An exceptional student or recent graduate with relevant hands-on experience will also be considered.</p>
+        </div>
+        <a class="apply-btn" href="https://qrkit.co/XpyptC" target="_blank" rel="noopener">Apply for this role →</a>
+      </div>
+    </div>
+
+  </section>
+
+  <hr />
+  <footer>
+    <p>© 2025 Abakino. All rights reserved.</p>
+    <a href="https://sohailafiat.github.io/abakino-privacy-policy/">Privacy Policy</a>
+  </footer>
+
+  <script>
+    function toggleJob(id) {
+      const job = document.getElementById(id);
+      job.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
