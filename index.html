@@ -262,7 +262,10 @@
       justify-content: space-between;
     }
 
-    footer p { font-size: 13px; color: var(--faint); }
+    .scroll-arrow { display: none; }
+    @media (max-width: 768px) {
+      .scroll-arrow { display: block; }
+    }
 
     footer a {
       font-size: 13px;
@@ -293,7 +296,7 @@
     <p class="eyebrow">We're hiring</p>
     <h1>Help us reshape STEM teaching</h1>
     <p>Abakino Whiteboard makes using a graphing calculator as easy as writing on paper. STEM teachers graph functions, solve equations, perform calculations, and create animations using nothing more than handwriting and natural gestures on a whiteboard. We have a working prototype, decades of experience in math education, advisory ties to UCL's education and entrepreneurship ecosystem, and have recently joined UtrechtInc as we head into pilot.</p>
-    <div style="margin-top: 0.75rem; color: #9FBF9A; font-size: 44px; text-align: center; line-height: 1;">↓</div>
+    <div class="scroll-arrow" style="margin-top: 0.75rem; color: #9FBF9A; font-size: 35px; text-align: center; line-height: 1;">↓</div>
   </section>
 
   <hr />
